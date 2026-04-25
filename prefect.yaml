@@ -1,0 +1,23 @@
+prefect-version: null
+name: awc-api-proxy-prefect
+build: null
+push: null
+pull:
+  - prefect.deployments.steps.git_clone:
+      repository: https://github.com/YOUR_USERNAME/YOUR_REPO.git
+
+deployments:
+  - name: proxy-request
+    version: null
+    tags:
+      - metar
+      - proxy
+      - prefect
+    description: >
+      Prefect Cloud flow that emulates the AWC proxy routes and returns a
+      structured response payload for /healthz, /stations/<ICAO>.TXT, and
+      /tgftp/stations/<ICAO>.TXT.
+    entrypoint: proxy_flow.py:proxy_request_flow
+    parameters:
+      method: GET
+      path: /healthz
