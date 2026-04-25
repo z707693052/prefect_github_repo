@@ -4,7 +4,7 @@ build: null
 push: null
 pull:
   - prefect.deployments.steps.git_clone:
-      repository: https://github.com/YOUR_USERNAME/YOUR_REPO.git
+      repository: https://github.com/z707693052/prefect_github_repo
 
 deployments:
   - name: proxy-request
